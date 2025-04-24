@@ -7,7 +7,7 @@
 ## 학습 저장소 복제하기
 
 ```sh
-git clone https://github.com/seulbinim/ssam-html-css.git
+git clone http://github.com/jeongeunsung/learn-html-css
 ```
 
 ## 의존성 패키지 설치하기
