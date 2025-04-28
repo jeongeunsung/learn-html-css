@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>하이러링크</title>
+  </head>
+  <body>
+    <h1>하이퍼링크</h1>
+    <h2>텍스트 링크</h2>
+    <!-- url 방식이 https로 시작되는 절대경로 : 외부 서비스를 연결할 때 사용함 -->
+    <!-- snippet-generator로 rel 자동 완성하는 방법
+       첫번째 https://snippet-generator.app/ 제너레이러 사이트 열고 왼쪽은 디스크립션 작성 새창 보완관련 속성, 오른쪽은 no-referrer이라고 이름 만들기
+       그리고 아래는 해당하는 소스 넣기(예: rel="noopenner noreferrer")
+       두번째 vscode에 명령 팔레트(ctrl+shif+p) 열고 snippets:configure snippets 검색 -> 스니펫 환경구성 New Global snippets files(처음에만 New 사용하고 그뒤에는 bootcamp만 하면 됨) 클릭하고 파일 이름 만들어서 넣고
+       새창 뜨면 거기에 제너레이러 사이트에 코드 복사해서 snippets { } 안에 있는거 삭제하고 소스 복사한거 붙여 넣기 그러면 a태그에 no만 쳐도 자동으로 생성됨
+       나만의 스티펫을 만들어 보는거 좋음
+
+       emmet도 스니펫임
+    -->
+    <a href="https://bootcamp.likelion.net/" target="_blank" rel="noopenner noreferrer">멋쟁이 사자처럼 부트캠프</a><br />
+    <!-- target="blank" : blank라는 창을 열어달라는 명령어로 동작함,
+     * 예약어 종류 : _self, _parent, _top, _blank  -->
+    <!-- 현재 프로젝트의 절대 경로 -->
+    <a href="/index.html">메인 페이지 이동</a><br />
+    <!-- file:///c:/users~ 파일 프로토콜을 기준으로의 절대경로 -->
+    <a href="mailto:sje8402@naver.com">Email 이메일</a><br />
+    <!-- mailto, tel을 프로토콜이라고 함 -->
+    <a href="tel:+10123456789">Phone 전화번호</a><br />
+    <!-- h1태그에 클래스 id title style tabindex data-* 속성 쓸수 있음, 이런것들이 전역 속성
+         mdn 참고서(레퍼런스 중심으로 공부해야됨)에서  확인 가능(전역 특성 링크 클릭), 비커모양이 있는거는 실험적인 속성이라서 어떤 브라우저는 쓸 수 있고
+         어떤 브라우저는 쓸 수 없는 속성
+
+         <a href="/src/assets/pdf/google-seo-guide-ko.pdf">구글 SEO 가이드 (PDF 문서)</a>클릭하면 viewer 역할을 함
+         개인 속성도 가질 수 있음 아래 처럼 
+         download
+         <a href="/src/assets/pdf/google-seo-guide-ko.pdf" download></a>속성 이름만 주는걸 분리형 속성이라고 부름
+
+         download에 값을 줄수도 있음(값을 주면 파일의 이름을 넣어 줄수 있음음)
+         <a href="/src/assets/pdf/google-seo-guide-ko.pdf" download="구글 가이드">구글 SEO 가이드 (PDF 문서)</a><br />
+
+         ** 동일 출처 URL 공부해야됨(cors에서 많이 물어봄)
+
+         target="_blank" 새창으로 열릴때 보안도 같이 넣어주는게 좋음
+    -->
+    <a href="/src/assets/pdf/google-seo-guide-ko.pdf" download="구글 가이드">구글 SEO 가이드 (PDF 문서)</a><br />
+  </body>
+</html>
