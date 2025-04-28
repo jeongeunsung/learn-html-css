@@ -11,7 +11,7 @@
     <!-- url 방식이 https로 시작되는 절대경로 : 외부 서비스를 연결할 때 사용함 -->
     <!-- snippet-generator로 rel 자동 완성하는 방법
        첫번째 https://snippet-generator.app/ 제너레이러 사이트 열고 왼쪽은 디스크립션 작성 새창 보완관련 속성, 오른쪽은 no-referrer이라고 이름 만들기
-       그리고 아래는 해당하는 소스 넣기(예: rel="noopenner noreferrer")
+       그리고 아래는 해당하는 소스 넣기(예: rel="noopenner noreferrer : noreferrer은 구형 브라우저도 같이 보안")
        두번째 vscode에 명령 팔레트(ctrl+shif+p) 열고 snippets:configure snippets 검색 -> 스니펫 환경구성 New Global snippets files(처음에만 New 사용하고 그뒤에는 bootcamp만 하면 됨) 클릭하고 파일 이름 만들어서 넣고
        새창 뜨면 거기에 제너레이러 사이트에 코드 복사해서 snippets { } 안에 있는거 삭제하고 소스 복사한거 붙여 넣기 그러면 a태그에 no만 쳐도 자동으로 생성됨
        나만의 스티펫을 만들어 보는거 좋음
@@ -43,6 +43,50 @@
 
          target="_blank" 새창으로 열릴때 보안도 같이 넣어주는게 좋음
     -->
-    <a href="/src/assets/pdf/google-seo-guide-ko.pdf" download="구글 가이드">구글 SEO 가이드 (PDF 문서)</a><br />
+    <a href="/src/assets/pdf/google-seo-guide-ko.pdf" download="글 가이드">구글 SEO 가이드 (PDF 문서)</a><br />
+    <a href="#coding">AI 코딩도구 활용</a><br />
+    <a href="#lorem">영문 더미 텍스트</a><br />
+    <!-- UI 마크업 실습 -->
+    <div>
+      <figure>
+        <img src="/src/assets/thumbnail/meeting-room.jpg" alt="" />
+        <figcaption>
+          <p>RESPONSIVE WEB<br />DESIGN STRATEGIES</p>
+          <p>반응형 웹디자인 전략</p>
+        </figcaption>
+      </figure>
+      <a href="/">강의정보</a>
+    </div>
+
+    <h2>이미지 링크</h2>
+    <!-- title은 전역 속성임
+     방금 설명에서는 title은 마우스 가져갔을 때 나오는 툴팁(목적지 설명)이고, alt는 이미지가 보여지지 않는 상황에서 대체로 나오는 텍스트입니다
+    -->
+    <a href="https://github.com/jeongeunsung" title="슬비쌤의 Github 저장소로 이동"><img src="/src/assets/profile/ssam.jpg" alt="슬비쌤" width="150" height="200" /></a>
+    <!-- 마크다운으로 img 넣을때
+    [슬비쌤] : 대체텍스트, () : 링크
+    [슬비쌤](./src/assets/profile/ssam.jpg) -->
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <!-- 전역속성 calss(이름) / id(주민번호, 반드시 한번만 사용할 수 있음) 
+         a태그를 href없이 쓸때 a name="" 프레그먼트 식별자라고 함
+         a태그가 interertive.href
+    -->
+    <!-- 최근에는 요런 패턴으로 많이 사용됨 -->
+    <p id="coding">
+      AI 코딩 도구를 활용하면 코드 생성 및 자동화, 개발 워크플로우와의 통합 등이 가능하며 기존 개발 환경 대비 생산성을 높일 수 있습니다. 그러나 개발자를 꿈꾸며 학습을하는 예비 개발자에게 AI 코딩 도구는 양날의 검이 될 수 있습니다. AI 코딩 도구에만 의존하는 주니어 개발자는 경쟁력을 갖출 수 없기 때문입니다. 오히려 더 깊이 있게 언어를 학습하고 좋은 질문을 할 수 있도록 문해력(Literacy)을 기르는 것이 필요합니다. 다만 AI 도구를 완전히 배제하는 것이 아닌 학습을 위한 파트너로서 활용할 것을 추천합니다.
+      <br />
+      <a href="#top">처음으로</a>
+    </p>
+    <!-- //최근에는 요런 패턴이 많이 사용됨 -->
+    <a name="lorem" href="#top">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit a velit numquam nostrum temporibus? Tempora ipsa assumenda, hic, laboriosam sapiente, facilis deserunt fugiat cumque totam sint aliquid ab. Minima, nemo.</a>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   </body>
 </html>
