@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>섹션과 메인 요소</title>
+  </head>
+  <body>
+    <!-- 시맨틱 마크업 구조 -->
+    <!-- body 섹션의 제목, 스크린 리더는 머릿말 영역이라고 이해함, 
+     WAI-ARIA 랜드 마크 규칙
+    -->
+    <header class="header">본문 헤더</header>
+    <nav class="navigation">내비게이션</nav>
+    <main class="content">
+      <section class="card">
+        <header>섹션 헤더</header>
+        <p>...</p>
+        <footer>섹션 푸터</footer>
+      </section>
+      <article class="product">
+        <header>섹션 헤더</header>
+        <p>...</p>
+        <footer>섹션 푸터</footer>
+      </article>
+    </main>
+    <aside class="sidebar">부가 콘텐츠</aside>
+    <footer class="footer">본문 푸터</footer>
+
+    <!-- hr 수평선 
+     마크다운은 아래 같은 줄에 나옴, 텍스트 옆에 띄어쓰기 두번 하면 줄바꿈 됨
+      텍스트
+      텍스트 
+    -->
+    <hr />
+
+    <!-- div 요소로 마크업 구조 -->
+    <div class="header">본문 헤더</div>
+    <div class="navigation">내비게이션</div>
+    <div class="content">
+      <div class="card">
+        <div>섹션 헤더</div>
+        <p>...</p>
+        <div>섹션 푸터</div>
+      </div>
+      <div class="product">
+        <div>섹션 헤더</div>
+        <p>...</p>
+        <div>섹션 푸터</div>
+      </div>
+    </div>
+    <div class="sidebar">부가 콘텐츠</div>
+    <div class="footer">본문 푸터</div>
+  </body>
+</html>
