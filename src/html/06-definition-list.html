@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정의형 목록</title>
+  </head>
+  <body>
+    <!-- 정의형 목록에서 <div> 요소를 사용할 경우 용어와 설명을 세트로 묶어서 사용해야 함. 
+        dl의 자식요소로 들어와야되고, dt랑 dd를 무조건 쌍으로 와야함
+        dt, dd를 묶어서 보여지게 할때 div사용
+        5.2버전부터 div 사용하게끔 했음 div를 허용하는건 dt,dd 쌍만 묶어 줄 수 있음
+
+        원래는 왜 허용 못하게 했냐면 content model때문에
+    -->
+    <!-- 정의형 목록에서 <div> 요소를 사용할 경우 용어와 설명을 세트로 묶어서 사용해야 함.  -->
+    <h1>흑백 요리사 : 요리 계급 젅ㅇ</h1>
+    <p>오직 '맛'으로만 승부하라! 넷플릭스 오리지널, 2024년 9월 17일 공개</p>
+    <dl>
+      <div>
+        <dt>장르</dt>
+        <dd>리얼 버라이어티, 서바이벌, 요리</dd>
+      </div>
+      <div>
+        <dt>공개일</dt>
+        <dd>2024년 9월 17일 ~ 2024년 10월 8일 매주 화요일 오후 5시</dd>
+      </div>
+      <div>
+        <dt>공개 회차</dt>
+        <dd>12부작</dd>
+      </div>
+      <div>
+        <dt>러닝 타임</dt>
+        <dd>약 800분</dd>
+      </div>
+    </dl>
+  </body>
+</html>
