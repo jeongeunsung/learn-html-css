@@ -4,9 +4,121 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>테이블 관련 요소</title>
+    <!-- Favicon 설정하기 -->
+    <!-- a : achor(body 안) 이동, link(head 안) 연결, rel(관계 relation) favicon(favorite 약자) -->
+    <link rel="shortcut icon" href="/public/favicon/likelion.ico" type="image/x-icon" />
+    <!-- rel="icon"은 런쳐 아이콘임, ico 유형을 요즘 대부분 사용하지 않음 fallback으로 svg로 많이 사용함, 그래서 런쳐아이콘이랑 탭 파비콘으로 사용함, 백터이미지가 확대해도 깨지지않음 -->
+    <link rel="icon" href="/public/favicon/likelion.svg" type="image/svg" />
+    <!-- cdn(컨텐츠 딜리버리 : 배달 받아서 쓰는거 (가져온 사이트의 서버가 죽으면 우리 사이트도 안나옴)-->
+    <!-- rel="preload" : 미리 로드(다운로드) 하는것, as="font" : font를 -->
+    <!-- 아래는 폰트 파일 -->
+    <link rel="preload" as="font" href="/public/font/suit/SUIT-Variable.woff2" />
+    <!-- 아래는 폰트를 css로 사용하겠다고 선언한거, font-face 웹폰트 선언만 해준다는 뜻 -->
+    <link rel="stylesheet" href="/public/font/suit/SUIT-Variable.css" />
+    <!-- css 
+      1. link선언해서 연결(익스터널 방식)
+      2. style 직접 선언(임베디드 방식)
+      3. 특정 태그 안에 전역 속성 이용하기 <body style="font-size: 36px">
+    -->
+    <link rel="stylesheet" href="/src/common/base.css" />
+    <style>
+      /* 개발자 도구
+        네트워크 > font
+        요청했고, status 숫자가 500 서버 오류, 400 오류 , 200~300 정상적으로 응답했을때
+      */
+      /* <link rel="stylesheet" href="/public/font/suit/SUIT-Variable.css" /> 선언한 코드를 본문에 글꼴로 사용하겠다라는 뜻 */
+      body {
+        font-family: 'SUIT Variable', sans-serif;
+      }
+      /* table-1로 쓰면 태그로 컴퓨터가 생각함, .table-1로 넣어야지 선택자라고 인식함, 꼭 구분 기호가 필요함 
+        id는 #
+        class는 .
+      */
+      .table-1 {
+        /* 선언(스타일) -  key값을 속성 : value; (; 안붙이면 컴파일 에러남)*/
+        border: 1px solid currentColor;
+
+        /* css 네스팅(충접) : 똑같은 스타일을 줄때 ,(콤마)를 주면 됨 */
+        th,
+        td {
+          border: 1xp slid currentColor;
+        }
+      }
+    </style>
   </head>
   <body>
+    <!-- 웹폰트
+      가장 많이 알려진 Noto Sans(cjk 폰트 : china japan korea 약자) : 맥환경에서 살짝 다르게 나옴
+      프리텐다드, 수트 : 가독성 요즘 많이 디자이너들이 사용함(고딕계열의 글꼴)
+    -->
     <a href="/index.html">메인 페이지 이동</a>
     <br />
+    <h1>테이블 관련 요소</h1>
+    <!-- 변수 클래스 이름을 정해줄 때 종류류
+        PC / TC / CC / KC / SC / Under Score 
+
+        main navigation 조합해서 쓸려면 
+        PC(파스칼 케이스) / TC : MainNavigation
+        CC(카멜 케이스 - 낙타 ) : mainNavigation(개발할때 많이씀)
+        KC(케바 케이스) : main-navigation
+        SC(스네이크 케이스) : main_navigation(개발할때 많이씀)
+
+        컨벤션을 정해주는게 좋음
+    -->
+    <table class="table-1">
+      <tr>
+        <!-- 제목셀, scope(유효범위) : 로컬/전역역, colume 방향인지 row 방향인지 알려주는것 -->
+        <th scope="col">이름</th>
+        <th scope="col">국어</th>
+        <th scope="col">수학</th>
+      </tr>
+      <tr>
+        <!-- 내용셀 -->
+        <th scope="row">홍길동</th>
+        <td>80</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <th scope="row">이영희</th>
+        <td>70</td>
+        <td>100</td>
+      </tr>
+    </table>
+    <hr />
+    <table>
+      <!-- colgroup, col, tbody thead, tfoot -->
+      <!-- caption은 figrue와 figcaption과 비슷함 -->
+      <caption class="sr-only">
+        입문자를 위한 Git과 HTML&CSS 과정
+        <span>학습시간, 난이도, 교육비 지원, 평가항목, 수료기준, 정원, 교재 정보 등을 나타낸 표</span>
+      </caption>
+      <tr>
+        <th scope="row">학습시간</th>
+        <td>09:00 ~ 17:00 ( 28시간 )</td>
+        <th scope="row">난이도</th>
+        <td>초급</td>
+      </tr>
+      <tr>
+        <th scope="row">교육비 지원</th>
+        <td>고용보험 비환급</td>
+        <th scope="row">평가항목</th>
+        <td>출석률 100%</td>
+      </tr>
+      <tr>
+        <th scope="row">수료기준</th>
+        <td>총점 80잠 이상시 수료</td>
+        <th scope="row">정원</th>
+        <td>24명</td>
+      </tr>
+      <tr>
+        <th scope="row">교재정보</th>
+        <td colspan="3">
+          <p>
+            입문자를 위한 GIT과 HTML&CSS<br />
+            HTML&CSS 웹사이트 개발과 디자인 기초(35,000원)
+          </p>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
