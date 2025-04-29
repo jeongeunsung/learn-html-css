@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iframe, object 요소</title>
+    <link rel="shortcut icon" href="/public/favicon/likelion.ico" type="image/x-icon" />
+    <link rel="icon" href="/public/favicon/likelion.svg" type="image/svg" />
+    <link rel="preload" as="font" href="/public/font/suit/SUIT-Variable.woff2" />
+    <link rel="stylesheet" href="/public/font/suit/SUIT-Variable.css" />
+    <style>
+      body {
+        font-family: 'SUIT Variable', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/index.html">메인 페이지 이동</a>
+    <br />
+    <!-- iframe을 활용하여 비디오 삽입하기 -->
+    <!-- title 전역속성(아무곳이나 다 갖다 쓸 수 있는 것) : 영상의 주제를 넣어야함, referrerpolicy : 출처에 대한 정보, allowfullscreen 논리속성은 값을 갖지 않은 속성 : full 스크린을 허용함, 유튜브에 frameborder ~ picture-in-picture 비표준이라서 안퍼온거 -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/fUcIe7-2zxw?si=KVttttG3z5wbvepJ" title="웹접근성이란 - AOA11Y Youtube" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> </iframe>
+
+    <!-- object 요소로 PDF 삽입하기 -->
+    <!-- figure 독립된 정보이고, pdf, img, ifrmae 등이 올 수 있음 -->
+    <figure>
+      <!-- object 객체를 사용할 때 -->
+      <object type="application/pdf" data="/src/assets/pdf/wai-aria.pdf" width="600" height="430"></object>
+      <figcaption>WAI-ARIA</figcaption>
+    </figure>
+  </body>
+</html>
