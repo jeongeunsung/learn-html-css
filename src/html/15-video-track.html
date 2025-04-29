@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>video 관련 요소</title>
+    <link rel="shortcut icon" href="/public/favicon/likelion.ico" type="image/x-icon" />
+    <link rel="icon" href="/public/favicon/likelion.svg" type="image/svg" />
+    <link rel="preload" as="font" href="/public/font/suit/SUIT-Variable.woff2" />
+    <link rel="stylesheet" href="/public/font/suit/SUIT-Variable.css" />
+    <style>
+      body {
+        font-family: 'SUIT Variable', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/index.html">메인 페이지 이동</a>
+    <br />
+    <!-- poster="/src/assets/video/poster.jpg"는 썸네일 이미지, muted를 안하고 autoplay하면 접근성에 맞지 않아 autoplay가 실행되지 않음 -->
+    <video muted autoplay poster="/src/assets/video/poster.jpg">
+      <!-- 예전엔 브라우저마다 제각각 재생 가능한 형식의 비디오를 보여줬지만 요즘은 비디오 mp4 오디오는 mp3로 이용함함 -->
+      <source src="/src/assets/video/google-developer-stories.mp4" type="video/mp4" />
+      <!-- <source src="/src/assets/video/google-developer-stories.webm" type="video/mp4" />
+      <source src="/src/assets/video/google-developer-stories.ogg" type="video/mp4" />
+      <source src="/src/assets/video/google-developer-stories.mov" type="video/mp4" /> -->
+      <!-- video태그는 track(자막), 웹표준 자막은 vtt -->
+      <track src="/src/assets/video/stories-en.vtt" kind="captions" srclang="en" label="English Caption" />
+      <track src="/src/assets/video/stories-ko.vtt" kind="captions" srclang="ko" label="한국어 자막" />
+    </video>
+
+    <video src="/src/assets/video/google-developer-stories.mp4" controls muted poster="/src/assets/video/poster.jpg">
+      <track src="/src/assets/video/stories-en.vtt" kind="captions" srclang="en" label="English Caption" />
+    </video>
+  </body>
+</html>
