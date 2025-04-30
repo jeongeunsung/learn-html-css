@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>picture와 source 요소</title>
+    <link rel="shortcut icon" href="/public/favicon/likelion.ico" type="image/x-icon" />
+    <link rel="icon" href="/public/favicon/likelion.svg" type="image/svg" />
+    <link rel="preload" as="font" href="/public/font/suit/SUIT-Variable.woff2" />
+    <link rel="stylesheet" href="/public/font/suit/SUIT-Variable.css" />
+    <style>
+      body {
+        font-family: 'SUIT Variable', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- srcset : 소스가 여러개, 반응형 이미지, webp가 용량이 적어서 렌더링이 빠름
+        컴퓨터에 맞게 최적화된 걸로 가지고 옴
+        /src/assets/logo/netflix@1x.webp 1x : 1x(1배율)
+        /src/assets/logo/netflix@1x.webp 2x : 2x(2배율)
+        x방식보다 최근에는 w(width 원본 크기)로 사용, media(뷰포트의 크기를 말함, css media 쿼리 사용)
+    -->
+    <a href="/index.html">메인 페이지 이동</a>
+    <br />
+    <img srcset="/src/assets/rwd/image-1x.png 1x, /src/assets/rwd/image-2x.png 2x, /src/assets/rwd/image-3x.png 3x, /src/assets/rwd/image-4x.png 4x" src="/src/assets/rwd/image-src.png" alt="" />
+    <hr />
+    <picture>
+      <!-- 0개 이상의 <source>
+      1개의 <img> -->
+      <picture>
+        <!-- source는 내 해상도에 맞는걸 img에 src경로를 재할당 하는것, 밀도까지 확인할때는 파이어폭스로 확인하면 새로고침안해도 바로 볼수있음 -->
+        <source srcset="/src/assets/rwd/small-550.jpg 550w" media="(max-width: 500px)" />
+        <source srcset="/src/assets/rwd/medium-1024.jpg 1024w" media="(max-width: 768px)" />
+        <source srcset="/src/assets/rwd/large-1600.jpg 1600w" media="(max-width: 1280px)" />
+        <img src="/src/assets/rwd/normal-1920.jpg" alt="" media="" />
+      </picture>
+    </picture>
+  </body>
+</html>

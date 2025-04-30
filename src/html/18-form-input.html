@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼 (input) 요소</title>
+    <link rel="shortcut icon" href="/public/favicon/bootcamp.ico" type="image/x-icon" />
+    <link rel="icon" href="/public/favicon/bootcamp.svg" type="image/svg" />
+    <link rel="preload" as="font" href="/public/font/suit/SUIT-Variable.woff2" />
+    <link rel="stylesheet" href="/public/font/suit/SUIT-Variable.css" />
+    <style>
+      body {
+        font-family: 'SUIT Variable', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/index.html">메인 페이지 이동</a>
+    <br />
+    <h1>폼(input) 요소</h1>
+
+    <!-- action="서버url" method=GET(응답 결과가 뿌려지는걸)/POST(글은 보내고 끝남)
+      form 요소 ui가 다른 이유는 브라우저가 지원하는 네이티브 ui가 달라서 그런거거
+      크롬, 엣지, 오페라(크로미움 기반) 와 사파리, 파이어폭스는 다른 기반이기때문에 ui가 다르기때문에 크로스 브라우징 해야됨
+    -->
+    <form action="https://formspree.io/f/xeqwwbwk" method="POST">
+      <!-- label과 input 줄바꿈해서 공백이 생기는 현상이 있으니 파일 용량도 커짐 그래서 공백없이 한줄로 압축하는 번들링 도구를 이용하여 배포함 -->
+      <!-- 개발은 작업, 배포는 도구를 이용하여 압축하고 최적화 하게 만듦 -->
+      <!-- input : 한줄 글상자라고 말하기도 함, input을 마우스로 클릭했을때 커서가 생기는걸 인터렉티브 요소라고함 -->
+      <!-- 폼 관련 요소는 모두 1대1로 대응하는 레이블을 가져야 함 -->
+      <!-- 한줄 글상자(search) - 검색어 입력서식 -->
+      <!-- 입력서식 component(부품) -->
+      <div>
+        <!-- text : 텍스트 입력 서식 -->
+        <label for="userName">이름</label>
+        <input type="text" id="userName" name="name" />
+      </div>
+      <!-- // 입력서식 component(부품) -->
+      <!-- search : 검색어 입력 서식(html5에서 새롭게 추가됨) -->
+      <div>
+        <label for="searchKeyword">검새어</label>
+        <!-- placeholder 입력값의 힌트 -->
+        <input type="search" name="keyword" id="searchKeyword" placeholder="검색어를 입력하세요" />
+      </div>
+
+      <!-- tel : 전화번호 입력 서식 (html5에서 새롭게 추가됨) -->
+
+      <!-- email : 이메일 입력 서식 (html5에서 새롭게 추가됨) -->
+      <!-- required 서버로 전송하지 않음, 요구하는 값이 검증하고 오류가 있으면 알려주고 없으면 서버로 전송송 -->
+      <div><label for="userEmail">이메일</label><input required type="email" name="userEmail" id="userEmail" /></div>
+
+      <!-- name은 같은 카테고리를 넣음,  
+       bootcamp="html", bootcamp="css"로 서버에 데이터로 전송됨, 
+       value값은 서버에 정보가 날라갈때 "html", "css" 임 
+      -->
+      <!-- checkbox : 체크박스 서식 -->
+      <div>
+        <!-- label 명시적인 레이블, for와 id 값을 연결 해주는 것  -->
+        <input type="checkbox" checked value="html" name="bootcamp" id="bootcampHtml" />
+        <label for="bootcampHtml">HTML</label>
+      </div>
+      <div>
+        <input type="checkbox" value="css" name="bootcamp" id="bootcampCss" />
+        <label for="bootcampCss">CSS</label>
+      </div>
+
+      <!-- radio : 라디오 서식 -->
+      <!-- label 암묵적인 레이블, label안에 input을 포함시키는 것,
+        웹표준 문법에도 어긋나지 않음, 스크린 리더가 이런 방식을 제대로 읽어주지 못하는 경우가 있어 명시적인 레이블을 사용하는게 맞음 
+      -->
+      <div>
+        <label>
+          <input type="radio" checked value="" name="classRoom" id="classRoom1" />
+          회고 1팀
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" value="" name="classRoom" id="classRoom2" />
+          회고 2팀
+        </label>
+      </div>
+
+      <!-- 버튼(전송, 초기화, 일반버튼) -->
+      <div>
+        <!-- 보튼(submit, reset, button) - 검색 버튼, value값이 있으므로 label이 없어도 됨(식별 가능한 label : 구분할 수 있는 용어) -->
+        <input type="submit" value="전송" />
+        <!-- 요즘은 사용자 경험때문에 초기화 안하는 경우가 많음, 오류가 발생했을때 접근성 지침에 오류정정을 제공해야함 -->
+        <!-- 접근성 전경색 배경색 명도대비 4.5:1이상 준수 -->
+        <!-- 접근성 가이드라인(WCAG) -->
+        <input type="reset" value="초기화" />
+        <input type="button" value="버튼" />
+      </div>
+      <!-- //버튼(전송, 초기화, 일반버튼) -->
+    </form>
+  </body>
+</html>
