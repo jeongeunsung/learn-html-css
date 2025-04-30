@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dialog 요소 popover 속성</title>
+    <link rel="shortcut icon" href="/public/favicon/likelion.ico" type="image/x-icon" />
+    <link rel="icon" href="/public/favicon/likelion.svg" type="image/svg" />
+    <link rel="preload" as="font" href="/public/font/suit/SUIT-Variable.woff2" />
+    <link rel="stylesheet" href="/public/font/suit/SUIT-Variable.css" />
+    <!-- html>head css 넣는 방식을 임베디드 스타일 -->
+    <!-- backdrop-filter css로 딤드 처리 -->
+    <!-- open, close 자바스크립트 -->
+    <style>
+      body {
+        font-family: 'SUIT Variable', sans-serif;
+      }
+      dialog.panel-dialog::backdrop {
+        background: linear-gradient(to right, #ffcccb, #ccffcc);
+      }
+    </style>
+    <script type="module">
+      // 요소 선택
+      const openButton = document.querySelector('.show-dialog');
+      const dialog = document.querySelector('.panel-dialog');
+      const closeButton = document.querySelector('.close-dialog');
+      const dismissTodayButton = document.querySelector('.dismiss-today');
+
+      // 다이얼로그 초기 상태 설정 (HTML에 open 속성이 있어도 JavaScript로 제어하기 위해)
+      dialog.close();
+
+      // 혜택 보기 버튼 클릭 시 다이얼로그 열기
+      openButton.addEventListener('click', function () {
+        dialog.showModal(); // showModal() 메서드는 모달 형태로 다이얼로그를 표시합니다
+      });
+
+      // 닫기 버튼 클릭 시 다이얼로그 닫기
+      closeButton.addEventListener('click', function () {
+        dialog.close();
+      });
+    </script>
+  </head>
+  <body>
+    <a href="/index.html">메인 페이지 이동</a>
+    <br />
+    <button type="button" class="show-dialog">혜택 보기</button>
+
+    <!-- open은 화면에서 열린 상태로 보여짐 -->
+    <dialog class="panel-dialog" aria-labelledby="surprise-benefits" aria-describedby="surprise-benefits-details">
+      <h2 id="surprise-benefits">깜짝 혜택</h2>
+      <p id="surprise-benefits-details">쉿! 고객님만을 위한 깜짝 할인 쿠폰 어제 빠뜨린 상품도 할인받고 내일 만나요!</p>
+      <div>
+        <a href="/">쿠폰 확인하기</a>
+        <button type="button" class="dismiss-today">오늘 하루 안보기</button>
+        <button type="button" class="close-dialog">닫기</button>
+      </div>
+    </dialog>
+    <hr />
+    <!-- popover 속성 -->
+    <button type="button" popovertarget="popoverContent" class="button-popover">팝오버 보기</button>
+    <div popover id="popoverContent">
+      <p>팝오버는 툴팁(마우스 올렸을때 나타나는)과 비슷한 UI 요소로, 추가적인 정보를 제공하거나 사용자와 상호작용할 수 있는 작은 창을 표시할 때 유용하다.</p>
+    </div>
+  </body>
+</html>
