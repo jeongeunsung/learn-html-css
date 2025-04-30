@@ -21,13 +21,15 @@
 
     <!-- action="서버url" method=GET(응답 결과가 뿌려지는걸)/POST(글은 보내고 끝남)
       form 요소 ui가 다른 이유는 브라우저가 지원하는 네이티브 ui가 달라서 그런거거
-      크롬, 엣지, 오페라(크로미움 기반) 와 사파리, 파이어폭스는 다른 기반이기때문에 ui가 다르기때문에 크로스 브라우징 해야됨
+      크롬, 엣지, 오페라(크로미움 엔진) 와 사파리, 파이어폭스는 다른 엔진이기때문에 ui가 다름
+      Chromium 엔진은 HTML5의 기본 폼 유효성 검사 기능이 거의 동일
     -->
     <form action="https://formspree.io/f/xeqwwbwk" method="POST">
       <!-- label과 input 줄바꿈해서 공백이 생기는 현상이 있으니 파일 용량도 커짐 그래서 공백없이 한줄로 압축하는 번들링 도구를 이용하여 배포함 -->
       <!-- 개발은 작업, 배포는 도구를 이용하여 압축하고 최적화 하게 만듦 -->
       <!-- input : 한줄 글상자라고 말하기도 함, input을 마우스로 클릭했을때 커서가 생기는걸 인터렉티브 요소라고함 -->
       <!-- 폼 관련 요소는 모두 1대1로 대응하는 레이블을 가져야 함 -->
+
       <!-- 한줄 글상자(search) - 검색어 입력서식 -->
       <!-- 입력서식 component(부품) -->
       <div>
@@ -36,6 +38,11 @@
         <input type="text" id="userName" name="name" />
       </div>
       <!-- // 입력서식 component(부품) -->
+
+      <!-- password: 비밀번호 입력 서식 -->
+      <!-- Dom조작을 통해서 비밀번호를 숫자로 보이게 하고 ㅇㅇ 이렇게도 보이게 할 수 있음 -->
+      <div><label for="userPassword">비밀번호</label><input required type="password" name="userPassword" id="userPassword" /></div>
+
       <!-- search : 검색어 입력 서식(html5에서 새롭게 추가됨) -->
       <div>
         <label for="searchKeyword">검새어</label>
@@ -46,12 +53,25 @@
       <!-- tel : 전화번호 입력 서식 (html5에서 새롭게 추가됨) -->
 
       <!-- email : 이메일 입력 서식 (html5에서 새롭게 추가됨) -->
-      <!-- required 서버로 전송하지 않음, 요구하는 값이 검증하고 오류가 있으면 알려주고 없으면 서버로 전송송 -->
-      <div><label for="userEmail">이메일</label><input required type="email" name="userEmail" id="userEmail" /></div>
+      <div>
+        <label for="userPhone">전화번호호</label>
+        <input required type="tel" name="userPhone" id="userPhone" />
+      </div>
+
+      <!-- required : 필수 입력 필드(무조건 입력해야됨), 입력 필드를 비워둔 채로 폼을 제출하는 것을 막을 수 있음, 서버로 전송하지 않음, 요구하는 값을 검증하고 오류가 있으면 알려주고 없으면 서버로 전송 -->
+      <div>
+        <label for="userEmail">이메일</label>
+        <input required type="email" name="userEmail" id="userEmail" />
+      </div>
+
+      <!-- WAI-ARIA : 시맨틱하지 않은 의미없는 마크업 - 폼 서식 -->
+      <div>
+        <span id="userEmail1">이메일</span>
+        <input type="email" name="userEmail1" aria-labelledby="userEmail1" />
+      </div>
 
       <!-- name은 같은 카테고리를 넣음,  
-       bootcamp="html", bootcamp="css"로 서버에 데이터로 전송됨, 
-       value값은 서버에 정보가 날라갈때 "html", "css" 임 
+       input의 name="bootcamp"와 value="html"을 bootcamp="html"로 만들어서 서버에 전송됨, 
       -->
       <!-- checkbox : 체크박스 서식 -->
       <div>
@@ -80,6 +100,8 @@
           회고 2팀
         </label>
       </div>
+
+      <!-- submit, reset는 무조건 form으로 묶어야함, 버튼인건 form 없어도 됨 -->
 
       <!-- 버튼(전송, 초기화, 일반버튼) -->
       <div>
