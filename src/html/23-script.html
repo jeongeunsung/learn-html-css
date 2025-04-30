@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>script 요소</title>
+    <link rel="shortcut icon" href="/public/favicon/likelion.ico" type="image/x-icon" />
+    <link rel="icon" href="/public/favicon/likelion.svg" type="image/svg" />
+    <link rel="preload" as="font" href="/public/font/suit/SUIT-Variable.woff2" />
+    <!-- 익스터널 방식으로 css 연결하는 방식 -->
+    <link rel="stylesheet" href="/public/font/suit/SUIT-Variable.css" />
+    <link rel="stylesheet" href="/src/html/styles/23-script.css" />
+    <style>
+      body {
+        font-family: 'SUIT Variable', sans-serif;
+      }
+    </style>
+    <!-- <script src="/src/html/js/23-script.js" defer></script> -->
+    <!-- 요즘은 module로 사용하며 module에는 기본으로 defer가 내장되어 있음 -->
+    <script type="module" src="/src/html/js/23-script.js" defer></script>
+  </head>
+  <body>
+    <a href="/index.html">메인 페이지 이동</a>
+    <br />
+    <h1>script 요소</h1>
+    <button type="button" class="flip-button">카드 뒤집기</button>
+    <div class="card-wrapper">
+      <div class="card">
+        <!-- 이미지를 제공하는 방법은 : 콘텐츠 이미지 방시, 배경 이미지 방식 -->
+        <div class="card-face card-face-black"></div>
+        <div class="card-face card-face-white"></div>
+      </div>
+    </div>
+  </body>
+</html>
