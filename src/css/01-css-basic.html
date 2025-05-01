@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 기초</title>
+    <link rel="shortcut icon" href="/public/favicon/likelion.ico" type="image/x-icon" />
+    <link rel="icon" href="/public/favicon/likelion.svg" type="image/svg" />
+    <!-- preload(미리 로드) : woff2(폰트 자원)를 미리 로드함 : 미리 로드하면 성능측면에서 좋음, 정말 꼭 필요한 자원(리소스)들을 프리로드 하면 성능측면에서 좋음 -->
+    <link rel="preload" as="font" href="/public/font/suit/SUIT-Variable.woff2" />
+    <!-- vite환경에서는 public(정적자산을 관리한 목적 : 폰트 관련 내용)/src(동적자산을 관리한 목적) -->
+    <link rel="stylesheet" href="/public/font/suit/SUIT-Variable.css" />
+    <link rel="stylesheet" href="/src/common/index.css" />
+    <link rel="stylesheet" href="/src/css/styles/01-css-basic.css" />
+  </head>
+  <!-- html 전역속성(모든 HTML 태그에 공통적으로 사용할 수 있는 속성), HTML 전역 속성들: class id title style data-* tabindex hidden 등 -->
+  <!-- body 요소에 style이라는 전역속성을 지정한 후 CSS 스타일을 정의하는 방식을 인라인 스타일이라고 한다. -->
+  <body style="color: green">
+    <!-- anchor 태그는 색상이 안바뀐 이유는 : 상속개념 우선순위 겹침때문에 안바뀜 -->
+    <a href="/index.html">메인 페이지 이동</a>
+    <br />
+    <h1>CSS 기초</h1>
+    <p>CSS는 선택자와 선언부 나뉜다. 이때 선언부에는 다양한 선언을 지정할 수 있다.</p>
+  </body>
+</html>

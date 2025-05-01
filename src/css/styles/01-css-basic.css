@@ -1,0 +1,23 @@
+/* 본문 요소에 배경 색상 지정하기 */
+body {
+  /* CSS에서 색상을 지정하는 방식
+
+  1. 색상 이름을 사용하는 방법 : background-color: green;
+  2. RGB를 16진수로 표현하는 방법 : color: #ff0000; (RGB는 0~9, a~f로 이루어진 16진수로 만들어서 색상을 보여주는 방식, 각 색상은 0~255사이의 값을 가지고, 256컬러 쓸 수 있음(16진수 * 16진수) , F(16)F(16) : RED /FF : GREEN /FF : BLUE)
+  4. RGBA (Red, Green, Blue, 투명도) RGB에 0 ~ 255 숫자로 색과 투명도(Alpha)를 추가한 방법 :  color: rgbargb(0, 255, 0, 0.5); (Alpha는 0~1사이의 값), 
+  최근에 많이 사용하는 방법은 rgb(0 255 0 /0.5) 이렇게 많이 사용함
+  5. HSLA (색상, 채도, 밝기, 투명도) 사람이 인식하기 쉬운 방식: 색상, 채도, 밝기, 투명도를 추가한 방법 : color: hsla(120, 100%, 50%, 0.3); 
+  */
+  background-color: rba;
+}
+
+/* 제목 요소에 글자 크기 지정하기 */
+h1 {
+  /* 속성의 값에서 css에서 미리 정의된 키워드(large, small 등)라고 함 */
+  /*  가계도를 돔트리라고 부름 파싱은 브라우저가 해석하는것, 상속 */
+  font-size: small;
+  border-width: 10px;
+  border-style: solid;
+  /* currentColor는 현재 요소의 color 속성 값을 참조하는 값 */
+  border-color: currentColor;
+}

@@ -1,5 +1,13 @@
+/* @(at sign rule) : @import 가져오기, 
+개발관점에서 유지보수와 가독성에 편함,(개발)
+사용자관점에서는 파일을 서버에 전송해서 불러와야하니깐 불필요한 일 그래서 배포가 있음
+파일 하나로 합쳐서 서비스 주는걸 배포때 함
+배포는 vite환경(요즘 많이 사용함)을 이용할꺼임(라이브서버 패키지 안깔아도 됨 내장되어 있음, 빌드까지 해서 배포버전까지 만듦)
+vite환경에서는 public(정적자산을 관리한 목적 : 폰트 관련 내용)/src(동적자산을 관리한 목적)
+@import url('~')에서 url()은 url() 함수라고 함
+*/
 @import '/src/common/modern-reset.css';
 @import '/src/common/theme.css';
 @import '/src/common/a11y.css';
 @import '/src/common/base.css';
-@import "/src/common/animation.css";
+@import '/src/common/animation.css';
