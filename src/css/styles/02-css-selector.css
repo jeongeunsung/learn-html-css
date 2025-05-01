@@ -1,0 +1,44 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+/* 전체 선택자 */
+* {
+  font-weight: 300;
+  font-family:
+  /* 우선 순위를 결정해서 글꼴을 순서대로 읽어 줌(첫번째 'Pretendard Variable' 글꼴이 없으면 두번째 Pretendard 글꼴로 읽어줌), 그리고 작성한 글꼴이 다 없으면 맨 마지막 sans-serif(제너릭 글꼴 계열 : 브라우저나 시스템이 자동으로 대체해줄 수 있는 기본 글꼴 그룹) 글꼴로 불러오라는 뜻 */
+    'Pretendard Variable',
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    'Helvetica Neue',
+    'Segoe UI',
+    'Apple SD Gothic Neo',
+    'Noto Sans KR',
+    'Malgun Gothic',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    sans-serif;
+}
+
+/* 요소(태그) 선택자 - Type selectors */
+p {
+  color: blue;
+}
+
+/* 클래스 선택자 - Class selectors */
+.like {
+  font-size: 24px;
+}
+
+/* 아이디 선택자 - ID selector */
+#lion {
+  background-color: yellow;
+}
+
+/* 속성 선택자 - Attribute selectors */
+/* p요소이면서 title 속성인 것만 가진 것 */
+p[title] {
+  border: 1px solid black; /*단축 표기법 shortend 표기법*/
+}
