@@ -1,8 +1,8 @@
-// 재사용가능하게 스크립트 만들기
 document.querySelector('.flip-button').addEventListener('click', () => {
   document.querySelector('.card').classList.toggle('is-flipped');
 });
 
+// 스크립트는 재사용가능하게 아래처럼 만들어야함
 // // DOM 요소 선택 부분
 // const flipButton = document.querySelector('.flip-button');
 // const card = document.querySelector('.card');
@@ -23,4 +23,4 @@ document.querySelector('.flip-button').addEventListener('click', () => {
 // }
 
 // // 페이지 로드 시 초기화
-// document.addEventListener('DOMContentLoaded', init); //dom 트리가 구현이 끝날때까지
+// document.addEventListener('DOMContentLoaded', init); //DOMContentLoaded : dom 트리가 구현이 끝났을때, init 초기화 해라

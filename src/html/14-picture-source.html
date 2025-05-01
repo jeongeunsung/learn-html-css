@@ -15,7 +15,7 @@
     </style>
   </head>
   <body>
-    <!-- srcset : 소스가 여러개, 반응형 이미지, webp가 용량이 적어서 렌더링이 빠름
+    <!-- srcset : 소스가 여러개, 반응형 이미지, WebP는 Google에서 개발한 최신 이미지 형식, 용량이 적어서 렌더링이 빠름
         컴퓨터에 맞게 최적화된 걸로 가지고 옴
         /src/assets/logo/netflix@1x.webp 1x : 1x(1배율)
         /src/assets/logo/netflix@1x.webp 2x : 2x(2배율)
@@ -25,16 +25,14 @@
     <br />
     <img srcset="/src/assets/rwd/image-1x.png 1x, /src/assets/rwd/image-2x.png 2x, /src/assets/rwd/image-3x.png 3x, /src/assets/rwd/image-4x.png 4x" src="/src/assets/rwd/image-src.png" alt="" />
     <hr />
+    <!-- 0개 이상의 <source>
+    1개의 <img> -->
     <picture>
-      <!-- 0개 이상의 <source>
-      1개의 <img> -->
-      <picture>
-        <!-- source는 내 해상도에 맞는걸 img에 src경로를 재할당 하는것, 밀도까지 확인할때는 파이어폭스로 확인하면 새로고침안해도 바로 볼수있음 -->
-        <source srcset="/src/assets/rwd/small-550.jpg 550w" media="(max-width: 500px)" />
-        <source srcset="/src/assets/rwd/medium-1024.jpg 1024w" media="(max-width: 768px)" />
-        <source srcset="/src/assets/rwd/large-1600.jpg 1600w" media="(max-width: 1280px)" />
-        <img src="/src/assets/rwd/normal-1920.jpg" alt="" media="" />
-      </picture>
+      <!-- source는 내 해상도에 맞는걸 img에 src경로를 재할당 하는것, 밀도까지 확인할때는 파이어폭스로 확인하면 새로고침안해도 바로 볼수있음 -->
+      <source srcset="/src/assets/rwd/small-550.jpg 550w" media="(max-width: 500px)" />
+      <source srcset="/src/assets/rwd/medium-1024.jpg 1024w" media="(max-width: 768px)" />
+      <source srcset="/src/assets/rwd/large-1600.jpg 1600w" media="(max-width: 1280px)" />
+      <img src="/src/assets/rwd/normal-1920.jpg" alt="" media="" />
     </picture>
   </body>
 </html>
