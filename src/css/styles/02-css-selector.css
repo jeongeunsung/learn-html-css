@@ -40,5 +40,48 @@ p {
 /* 속성 선택자 - Attribute selectors */
 /* p요소이면서 title 속성인 것만 가진 것 */
 p[title] {
-  border: 1px solid black; /*단축 표기법 shortend 표기법*/
+  border: 1px solid black; /*단축 표기법 shorthand 표기법*/
+}
+
+/* 자손 결합자 Descendant combinator : 하위 선택자라고도 함*/
+div p {
+  border: 1px solid red;
+  padding: 10px; /*border 기준으로 안쪽에 여백을 채우는 방식, border 기준으로 바깥쪽 여백은 margin*/
+}
+
+div .combinator {
+  color: green;
+}
+
+/* 자식 결합자 - Child combinator : 무조건 직계 자식 요소만 찾겠다라는 뜻*/
+ul > li {
+  border: 1px solid green;
+}
+
+/* 인접 형제 결합자 - Next-sibling combinator : h2에 바로 옆에 오는 형제만 p선택 */
+h2 + p {
+  font-style: italic;
+}
+
+/* 일반 형제 결합자 - Subsequent-sibling combinator : div 옆에 오는 모든 형제 p 선택 */
+div ~ p {
+  font-weight: 700;
+}
+
+/* 가상요소 선택자 */
+section {
+  border: 1px solid green;
+  padding: 20px;
+  margin: 20px;
+}
+
+/* before(첫번째 자식요소 : first child) or after(마지막 자식 요소 : last child)는 무조건 content 써야함, 자바스크립트에서 '' 곁따옴으로 씀 */
+section::before {
+  content: '멋쟁이 사자처럼';
+  color: red;
+}
+
+section::after {
+  content: '프론트엔드 부트캠프';
+  color: green;
 }

@@ -1,0 +1,75 @@
+/* 상속, 겹침, 우선순위 */
+/* 상속 */
+/* 부모로 부터 스타일을 물려받는 것, 상속은 나와 가장 가까운게 선택됨
+  div 엘리먼트 노드, h2 텍스트 노드라고 함 돔트리는 노드로 구성되어 있음, 모든 스타일은 상속되지 않음
+  꾸미기 관련된 것은 상속됨, 배치와 박스모델은 상속되지 않음 */
+.wrapper {
+  color: green;
+  border: 1px dotted red;
+}
+
+#container p {
+  color: teal;
+}
+
+.wrapper p {
+  border: inherit; /* inherit는 부모 스타일을 강제로 상속함 */
+  color: purple;
+}
+
+/* 겹침(상속으로 인한 겹침) */
+body {
+  color: red;
+}
+
+.ai {
+  color: blue;
+}
+
+/* 겹침, 우선순위(선택자의 우선순위) : 나중에 선언한게 우선임 */
+p {
+  color: orange;
+}
+
+p {
+  color: grey;
+}
+
+p {
+  color: pink !important;
+}
+
+/* .wrapper{color: purple} 안에 p태그가 상속받아서 purple이라고 나옴 나중에 p선택자에 grey주면 같은 점수이기 때문에 나중에 쓴 css가 우선임 */
+/* css 우선순위
+
+  1. !important
+      p {
+      color: red !important;
+    }
+
+  2. 인라인 스타일 (HTML 안에 직접 쓴 스타일)
+    <p style="color: green;">Hello</p>
+
+  3. 선택자 명시도 (누가 더 정확히 찝었나)
+    p { color: blue; } 1점
+    .ai { color: green; } 10점
+    #container { color: red; } 100점
+
+  4. 나중에 쓴 스타일 (같은 점수면 뒷사람 승)
+    p { color: blue; }  1점
+    p { color: red; }  1점
+  
+  5. 상속
+    <style>
+      .wrapper {
+        color: green;
+        border: 1px dotted red;
+      }
+    </style>
+    <div class="wrapper">
+      <p>AI 코딩 도구를 활용하면 </p> <!-- color를 안 정하면 green 상속 -->
+    </div>
+
+  => inherit < 선택자 점수 < 인라인 스타일 < !important
+
+*/
