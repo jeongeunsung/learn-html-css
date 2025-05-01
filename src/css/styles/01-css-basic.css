@@ -14,7 +14,7 @@ body {
 /* 제목 요소에 글자 크기 지정하기 */
 h1 {
   /* 속성의 값에서 css에서 미리 정의된 키워드(large, small 등)라고 함 */
-  /*  가계도를 돔트리라고 부름 파싱은 브라우저가 해석하는것, 상속 */
+  /* 가계도를 돔트리라고 부름 파싱은 브라우저가 해석하는것, 상속 */
   font-size: small;
   border-width: 10px;
   border-style: solid;
