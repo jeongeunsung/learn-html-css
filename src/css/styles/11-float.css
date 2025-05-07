@@ -1,0 +1,32 @@
+/* CSS float */
+/* 일반적인 흐름(위에서 아래로 선현화된 구조 normal flow 배치) */
+/* side effect (부수효과) */
+.bootcamp {
+  /* BFC가 내부적으로 동작한거(Block Formatting Context : 웹페이지에서 박스(박스처럼 보이는 요소들)가 어떻게 정리되고 겹치지 않게 놓일지를 정하는 규칙, 글자나 박스가 엉키지 않게 잘 정리해줌) : overflow hidden을 쓰면 넘칠때는 콘텐츠가 짤리는 이슈가 있음 */
+  /* float 속성 사용했을 때 부모요소에 overflow hidden과 clear안해도 display: flow-root로 해결됨 */
+  /* overflow: hidden; */
+  display: flow-root;
+  border: 1px solid red;
+
+  img {
+    width: 150px;
+    border: 1px solid green;
+  }
+
+  .tree {
+    float: right;
+  }
+
+  .rabbit {
+    float: left;
+  }
+
+  p {
+    background: #ffc;
+  }
+
+  .lion {
+    /* float으로 인한 문제를 both 양쪽으로 해제할 때 */
+    /* clear: both; */
+  }
+}
