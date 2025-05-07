@@ -1,0 +1,78 @@
+/* CSS 중첩 */
+/* 일반 CSS */
+.parent {
+  background-color: #f4a261;
+  padding: 20px;
+}
+
+/* 하위 선택자 */
+.parent .child {
+  color: white;
+  font-size: 16px;
+}
+
+/* CSS 중첩 */
+.parent {
+  background-color: #f4a261;
+  padding: 20px;
+
+  /* 빈즐을 띄우고 나자신을 선택하면 됨 */
+  .child {
+    color: white;
+    font-size: 16px;
+  }
+}
+
+/* 가상클래스 - :focus, :visited ...
+  가상요소 - ::
+*/
+
+.button {
+  color: red;
+
+  &:hover {
+    /* 상위선택자를 &가 참조 하겠다는 뜻 */
+    background-color: yellow;
+  }
+
+  &::before {
+    content: '콘텐츠';
+  }
+}
+
+/* 일반 CSS - 미디어쿼리 예시*/
+.container {
+  /* 모든 디바이스에 적용된다라는 뜻 */
+  width: 100%;
+  padding: 20px;
+}
+
+/* @ 선언 규칙 : @media + 조건(뷰포트(크기가 최소 )*/
+@media (min-width: 768px) {
+  /* 최소 768이상일때 재지정한다 */
+  .container {
+    width: 750px;
+  }
+}
+
+/* 중첩 CSS -미디어쿼리 예시 */
+.container {
+  /*  모든 디바이스 */
+  width: 100%;
+  padding: 20px;
+
+  /* 최소 768px 이상 */
+  @media (min-width: 768px) {
+    width: 750px;
+  }
+}
+
+/* Sass와 차이점 */
+/* BEM 패턴 : block + element */
+/* 아래와 같이 &기호를 부모 요소의 이름의 일부로 치환할 수 없다 */
+.menu__list {
+  
+  &__item {
+    /* sass에서는 &를 쓰면 .menu__list .menu__item을 적용됨 */
+  }
+}
