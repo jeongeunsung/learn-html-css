@@ -1,0 +1,71 @@
+/* 웹 관련 용어 - positon 예제 */
+/* 원자단위, 분자단위 */
+body {
+  margin: 50px;
+}
+/* 용어 컴포넌트 스타일 */
+.term {
+  /* background-color: #ffc; */
+  padding-left: 76px;
+  position: relative;
+  min-height: 68px;
+  margin-top: 12px;
+
+  em {
+    color: #296897;
+    /* px -> rem을 handoff함 */
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #181818;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+/* 용어 섹션 스타일링 */
+.term-section {
+  background-color: grey;
+  border: 1px solid #555;
+  /* left right bottom : border-radious: 20px 20px 0 0 / 50px 50px 0 0 :  축 / Y축, 
+  border-top-left-radius: ; */
+  /* 동그라미 정원 됨 웹브라우저는 x축과 y축으로 그려주고 상자가 5배까지 커질 경우에는 500px */
+  border-radius: 50px;
+  border-radius: 500px;
+  border-radius: 0.5rem;
+  border: 1px solid #a3a3a3;
+  /* background-image에서 background-image가 안보이면 #333으로 fallback 넣기, 브라우저 마다 linear gradient가 안나오는 경우가 있어 fallback 칼라까지 지원해주기 */
+  background: #333 linear-gradient(180deg, #ccc 0%, #eee 100%);
+  padding: 1rem;
+  width: 16.25rem;
+
+  h2 {
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+}
+
+.term {
+  /* 짝수 even */
+  &:nth-of-type(even) {
+    /* padding-right: 76px;
+    padding-left: 0; */
+    padding-inline: 0 68px;
+
+    img {
+      right: 0;
+      top: 0;
+      left: auto;
+      left: initial; /*초기값 줄때 initial줘도 됨(auto나 initial 줘도됨*/
+    }
+  }
+}
