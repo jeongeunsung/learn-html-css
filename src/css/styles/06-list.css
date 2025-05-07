@@ -1,0 +1,22 @@
+/* 리스트 스타일링 */
+/* scope(범위) 또는 CSS가 로드되는 순서 등으로 인해 우선순위 관리가 고질적인 문제였는데, @layer 가 나오면서 우선순위를 단순히 명시도(specificity)에만 의존하는 것이 아니라, **개발자가 정의한 '계층(layer)'의 순서에 따라 명시적으로 제어할 수 있는 강력한 방법**이 생겼음 */
+/* fallback : 첫 번째 방법이 안 될 때를 대비한 예비 계획 또는 대체 방법 */
+.likelion {
+  background-color: #fcf;
+
+  ol {
+    list-style: upper-roman url('/src/assets/thumbnail/new.png');
+  }
+}
+
+.bootcamp {
+  background-color: #ffc;
+
+  ul {
+    list-style-type: circle;
+    list-style-position: inside; /* marker의 위치가 안쪽으로 변경*/
+    /* list style 속성값을 한번에 설정할수있는 단축 속성 */
+    list-style: circle inside;
+    list-style-image: url('/src/assets/thumbnail/new.png'); /* "" 따옴표는 생략해도 됨, 이미지가 로딩 안되는 상황일때는 기본값을 제공함 */
+  }
+}
