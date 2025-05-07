@@ -1,0 +1,62 @@
+@import '/src/common/mini-reset.css';
+/* em단위가 작업하기 까다로움 반응형에 유연하지만, rem은 작업하기 편함 */
+/* : 가상클래스 (마치 그 태그에 특정한 클래서를 준것처럼 만들어줌)라고 말함, :: 가상요소라고 말함 */
+/*html {}을 :root{} 로 변경해도 됨*/
+html {
+  font-size: 10px;
+
+  /* 뷰포트에 따라 콘텐츠 스타일을 바꿀 수 있음 */
+  /* 최근에는 아래처럼 부등호로 사용가능하게 됨 */
+  /* 최소 600이상일 때 */
+  @media (width > 600px) {
+    font-size: 20px;
+  }
+
+  @media (width > 1200px) {
+    font-size: 30px;
+  }
+
+  /* 최소 1200이상일때 */
+  /* @media (min-width: 1200px) {
+    font-size: 30px;
+  } */
+}
+/* 타이포그래피 및 단위 */
+/* 글자 크기 */
+/* em단위는 현재 글자 크기에서 비례(상속) */
+.lion {
+  font-size: 10px;
+  /* css에서도 nesting(중첩) 표현 가능함(이전에는 전처리기 sass,less에서만 사용가능했는데 이젠 css에서도 가능함) */
+  .like {
+    font-size: 1.5em; /* 16(부모로 부터 상속받은 글자 크기) * 1.5 = 24*/
+    color: orange;
+  }
+}
+
+/* rem 단위 - root를 기준으로 계산 */
+.bootcamp {
+  font-size: 20px;
+
+  .like {
+    font-size: 2rem; /* 10(현재 글자 크기가 10px 현재크기를 알려면 dev tool에서 html(root) 찍고 computed 눌러서 font-size를 말하는거임) * 2 = 20px */
+    color: blue;
+    line-height: 1.5; /* 20(현재 글꼴 크기) * 1.5 = 30px*/
+    /* line-heigh는 넘버단위(line-height: 1.5처럼)로 사용하는걸 권장, 가장 안정적이고 예측 가능한 방법, 현재 글자 크기 기준으로 줄 간격을 유지하니까 디자인이 망가지지 않음 */
+    /* line-height: 150%; 부모 요소의 글꼴 크기를 기준으로 줄 높이를 계산 : 줄 간격이 예측하기 어려워짐, 비권장 */
+  }
+}
+
+/* vw 단위 - 뷰포트 기준으로 계산  */
+/* nesting 3단계까지는 중첩해도 되지만 그 이상 가면 유지보수 하기 힘듦 */
+.school {
+  font-weight: 700;
+
+  .like {
+    font-size: 5vw; /*디자인은 뷰포트 단위로 할 수 없음*/
+    color: green;
+
+    em {
+      font-style: oblique; /*텍스트 기울임*/
+    }
+  }
+}
