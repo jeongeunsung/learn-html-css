@@ -1,0 +1,89 @@
+/* 박스 모델 */
+/* top(start), bottom(end), left(start), right(end) : 해외에서는 start와 end 쓰고 논리단위라고 함함 */
+/* dev tool에 computed에서 기울임으로 보이는건 computed에만 가지는 스타일 */
+/* float : flow-root 독립적인 콘텐스트(독립된 공간)를 만들수있음 */
+/* div는 기본적인 width값은 auto(자신의 부모요소만큼 커짐) */
+/* mdn참고서 : form definition에서 inherited(상속값) / initial(초기값) */
+
+/* block box */
+/* border 스타일링 */
+/* padding 여백(안쪽) 스타일링 */
+.lion {
+  /* content(width) + padding + border = lion 실제 화면의 크기 */
+  background-color: #ffc;
+  /* top을 기준으로 시계방향으로 작성 */
+  border-top-width: 1px;
+  /* 논리속성 */
+  border-block-start-width: 1px;
+
+  border-right-width: 10px;
+  border-inline-end-width: 10px;
+
+  border-bottom-width: 5px;
+  border-block-end-width: 5px;
+
+  border-left-width: 15px;
+  border-inline-start-width: 15px;
+
+  border-width: 1px 10px 5px 15px;
+
+  /* 단축표기법(shortend)*/
+  border: 1px solid #333;
+  /* 논리속성은 블록방향과 인라인 방향으로 따로 줄 수 있음 */
+  padding-block: 10px;
+  padding-inline: 20px;
+  padding: 10px;
+  width: 500px;
+  box-sizing: content-box; /* 무조건 다 더해줌 기본값 */
+  box-sizing: border-box;
+
+  span {
+    /* span에 display: block을 하면 자신이 부모만큼 크기를 가지면서 독립된 개체가 됨 */
+    display: block;
+    /* width: 300px; */
+    width: 5em;
+    background-color: pink;
+
+    /* dom tree + css 오브젝트 모델이라고 cssom = render tree */
+  }
+}
+
+/* inline box */
+.like {
+  background-color: #ccc;
+  display: inline;
+  /* inline box는 width와 같은 크기를 직접 지정할 수 없다다 */
+  width: 5em;
+}
+
+/* inline-block box */
+.bootcamp {
+  background-color: #cfc;
+  display: inline-block;
+  width: 350px;
+}
+
+/* margin 여백(바깥쪽) 스타일링 */
+.frontend {
+  border: 1px solid blue;
+
+  .school {
+    border: 1px solid orange;
+    /* 단축표기법을 대표속성으로 많이 부름
+      margin의 특성 중에 상하로 인접한 박스의 display 속성값이 block인 경우 마진 겹침 현상이 발생함(margin이 큰쪽을 겹침, padding은 겹치지 않음)
+    */
+    margin: 10px;
+  }
+}
+
+/* overflow 속성을 활용한 스타일링 : visible(기본값) */
+.techit {
+  border: 1px solid green;
+  padding: 10px;
+  margin: 10px;
+  height: 150px;
+  overflow: scroll; /* auto : 안보이는 영역에만 스크롤을 지정, scroll : 모두 다 지정, block formatting content(독립적인 영역으로 ) */
+}
+
+/* *(모든 선택자) 초기 로딩 시 브라우저가 모든 요소를 일일이 찾아 스타일 적용해야 하므로,
+규모가 큰 웹사이트에선 렌더링 속도에 약간의 부담 */
