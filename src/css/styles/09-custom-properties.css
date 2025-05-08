@@ -1,0 +1,90 @@
+/* sass도 변수를 선언할 수 있다, css와는 조금 다름, sass는 컴파일 하면 css의 값만 바로 보여줌 */
+/* 변수 선언한 걸 css파일로 컴파일(변환, 개발자는 빌드한다라고 말하기도 함)할때 치환한다 */
+/* nesting은 선택자 안에 선태자를 선택해서 css로 컴파일한다. 자손결합자 방식으로 css 컴파일함 */
+/* 변수(값을 담는 그릇)를 커스텀 프로퍼티 또는 사용자 지정 속성이라고 부름, ather 스타일은 개발자 스타일, css는 속성으로 만든 다음에 속성의 값을 가져와서 써야함 */
+/* 대소문자 구분함 */
+/* 사용자 지정 속성은 상속 대상, css 상속되는 속성이 있고 상속되지 않은 속성이 있는데 다 상속 되는 규칙을 정할 수 있음, 
+  @property를 사용해서 규칙을 정할수 있음, inherits를 이용해서 상속으로 주거나 안주거나 할 수 있음
+  syntax는 범위를 지정하지 않고 다른 값을 넣으면 문법에러(버그)가 생길 수 있기 때문에 문법을 결정하는 거 중요한거(age는 숫자로 들어가는데 문자가 들어가거나 하는)
+
+  @property --text-color {
+    syntax: '<color>';
+    inherits: false;
+    inital-value: #f0f;
+  }
+*/
+/* CSS 변수 */
+/* property 사용해서 규칙을 정하는건 나중에 확인해서 말해주신다고함 */
+@property --text-color {
+  syntax: '<color>';
+  inherits: false;
+  inital-value: #f0c;
+}
+
+:root {
+  /* root는 html 최상의 선택자를 말함 */
+  /* 제일 최상단 부모 html에 선언해서 전역의 범위라고 생각할 수도 있음, 상속 개념임 */
+  /* 변수 이름 정할 때는 용도에 맞게 정하는게 좋음, 색상으로 표시하면 색상이 변하면 변수도 변경해야 하기때문에 적합하지 않음 */
+  --main-color: rgb(49, 83, 3);
+  --red: #f00;
+  --green: #0f0;
+  --blue: #00f;
+
+  /* 커스텀 프로퍼티 안에서 다른 프로퍼티 값을 가져다 쓸수 있음 */
+  --main-color: var(--green);
+}
+
+body {
+  /* --main-color: rgb(49, 83, 3); 지역변수 scope (형제까지는 안되고 부모에서 상속되는것만 사용가능) */
+  /* --main-color: rgb(49, 83, 3); */
+
+  margin: 50px;
+  background: #ffc;
+  color: var(--main-color); /*var : 파라메타, --main-color : 인수, var 함수를 이용함*/
+}
+
+a {
+  /* --red: #f00; 지역변수 scope (형제까지는 안되고 부모에서 상속되는것만 사용가능) */
+  /* --red: #f00; */
+
+  border: 1px solid var(--main-color);
+  --text-color: var(--red);
+  /* --text-color에서 pink 값이 부모에 정의한적이 핪으면 fallback 칼라로 f0f로 줌 */
+  /* 아래 속성값 해석 : "--text-color"라는 변수는 "--pink" 변수의 값을 따라가되, "--pink"가 없으면 기본값으로 **#f0f**(핫핑크)를 사용한다라는 의미 */
+  /* var함수는 상속받은 var함수 값과 내가 가진 var 함수 값이 있으면 내가 가진 값이 우선임 */
+  --text-color: var(--pink, #f0f);
+
+  color: var(--text-color);
+
+  span {
+    color: var(--blue);
+  }
+}
+
+h1 {
+  /* 아래 color의 var함수가 적용 안되는건 var함수는 부모가 가진 속성을 자식요소에만 상속해줄 수 있음, 형제 레벨은 안됨 */
+  /* color: var(--red); */
+  box-shadow: 5px 5px 5px 5px var(--main-color); /*x축으로 5px이동 y축으로 5px이동 안쪽으로 5px 그림자 바깥쪽으로 5px 그림자*/
+}
+
+/* 
+syntax 값 종류
+
+<length>: 길이 값 (예: 10px, 2em, 5%)
+<number>: 숫자 값 (정수 또는 소수, 단위 없음) (예: 1.5, 100)
+<integer>: 정수 값 (예: 10, -5)
+<percentage>: 백분율 값 (예: 50%)
+<dimension>: 단위가 있는 숫자 값 (예: 10px, 2em, 3s, 4deg 등 <length>, <angle>, <time>, <resolution> 등을 포함하지만 <percentage>는 제외)
+<color>: 색상 값 (예: #fff, red, rgba(0,0,0,0.5))
+<url>: URL 값 (예: url('image.png'))
+<image>: 이미지 값 (예: url('image.png'), linear-gradient(...))
+<transform-function>: 단일 변환 함수 (예: translateX(10px), rotate(45deg))
+<transform-list>: 하나 이상의 변환 함수의 목록 (예: translateX(10px) rotate(45deg))
+<angle>: 각도 값 (예: 90deg, 1rad, 0.25turn)
+<time>: 시간 값 (예: 1s, 500ms)
+<resolution>: 해상도 값 (예: 72dpi, 2dppx)
+<custom-ident>: 사용자 정의 식별자 (CSS 키워드와 충돌하지 않는 임의의 문자열) (예: my-value, another-name)
+<string>: 문자열 값 (따옴표로 묶인 텍스트) (예: "Hello", 'World')
+
+각각 값은 |, +, #로 조합될 수 있습니다!
+*/
