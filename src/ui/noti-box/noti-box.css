@@ -39,7 +39,7 @@ section {
 .noti-item {
   position: relative;
   width: 332px;
-  height: 84px;
+  min-height: 84px;
   margin-top: 12px;
   padding: 20px 20px 20px 68px;
   border-radius: 8px;

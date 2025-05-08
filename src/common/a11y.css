@@ -1,4 +1,7 @@
 /* 접근성 관련 CSS */
+/* 센스리더는 display: none은 읽어줌, 공간을 차지하지 않고 가로 세로 1px 하고 숨김처리하고, font-size: 0주면 스크린리더가 읽지 못함(특히 모바일에서) opacity:0도 스크린리더가 못읽음 
+  margin: -1px은 네거티브 마진 트릭이라고 부름, 상자가 보이지 않게하는 트릭, caption와 legend때문에 clip 들어감
+*/
 .sr-only {
   position: absolute;
   width: 1px;
@@ -6,7 +9,8 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  clip: rect(0, 0, 0, 0); /* 옛날 방식 */
+  clip-path: inset(50%); /* clip보다 clip-path 이걸 많이 사용함 polygon보다 더 짧아서 inset을 쓰는게 유용*/
+  white-space: nowrap; /* 상자에 텍스트가 넘치면 줄바꿈 하지말라는 뜻 */
   border-width: 0;
 }
