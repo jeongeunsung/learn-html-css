@@ -1,0 +1,96 @@
+/* 아바타 - 상태 디자인 */
+body {
+  margin: 50px;
+}
+/* 인터렉션이 없는 아바타 */
+.avatar-img {
+  /* 커스톰 프로퍼티 --size: 100px; */
+  --size: 100px;
+  /* 리액트에서 풀옵스로 값을 전달해서 제어할 수 있음 */
+  width: var(--size);
+  position: relative;
+
+  img {
+    border-radius: 50%;
+  }
+
+  .status {
+    /* 부모 기준(avatar-img)으로 크기를 바꿀려면 %로 넣어야함 */
+    width: 25%;
+    /* aspect-ratio 1/1 정사각형 */
+    aspect-ratio: 1/1;
+    background: var(--gray);
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+
+    &.is-active {
+      background: rgb(3, 81, 36);
+    }
+  }
+}
+
+.lion {
+  div {
+    float: left;
+  }
+
+  /* flex환경에서 지원해라 */
+  @support (display:flex) {
+    display: flex;
+  }
+}
+
+/* 인터렉션이 있는 아바타 */
+.avatar-botton {
+  /* all: unset; 모든 기본 속성을 다 없앰*/
+  --size: 80px;
+  border: 0;
+  padding: 0;
+  background: transparent; /* background 초기값*/
+  width: var(--size);
+  position: relative;
+
+  img {
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: '';
+    width: 25%;
+    aspect-ratio: 1/1;
+    background-color: var(--gray);
+    /* absolute가 보이는 순간 bfc되어 버려서 display: block화 됨 */
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+  }
+
+  &.is-active::after {
+    background: rgb(3, 81, 36);
+  }
+}
+
+/* 아바타 리스트 */
+.aratars-list {
+  padding: 26px 40px;
+
+  ul {
+    display: flow-root;
+    width: 380px;
+    margin: 0 auto;
+
+    li {
+      margin: 10px 0 10px 10px;
+      float: left;
+
+      &:nth-child(4n + 1) {
+        margin-left: 0;
+      }
+    }
+  }
+}

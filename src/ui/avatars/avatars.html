@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아바타 (상태 디자인)</title>
+    <link rel="shortcut icon" href="/public/favicon/likelion.ico" type="image/x-icon" />
+    <link rel="icon" href="/public/favicon/likelion.svg" type="image/svg" />
+    <link rel="preload" as="font" href="/public/font/suit/SUIT-Variable.woff2" />
+    <link rel="stylesheet" href="/public/font/suit/SUIT-Variable.css" />
+    <link rel="stylesheet" href="/src/common/index.css" />
+    <link rel="stylesheet" href="/src/ui/avatars/avatars.css" />
+  </head>
+  <body>
+    <a href="/index.html">메인 페이지 이동</a>
+    <br />
+    <h1>아바타 (상태 디자인)</h1>
+    <hr />
+    <h2>인터렉션이 없는 아바타</h2>
+    <!-- 상황에 따라 지연 로딩을 불러야함(loding="laze") -->
+    <!-- 간단하게 쓸때는 picture source 안쓰고 srcset로 써도 됨 -->
+    <!-- jpg를 webp로 빌드해주는 웹팩 번들링 도구 써야됨 -->
+    <figure class="avatar-img">
+      <img src="/src/assets/face/face1.jpg" srcset="/src/assets/face/face1.webp" alt="사용자명" />
+      <figcaption class="status"><span class="sr-only">오프라인</span></figcaption>
+    </figure>
+    <figure class="avatar-img" style="--size: 80px">
+      <!-- 나중에 리액트 할때 커스텀 프로퍼티 사용해서 인라인으로 줘서 스타일을 수정할 수 있음-->
+      <img src="/src/assets/face/face1.jpg" srcset="/src/assets/face/face1.webp" alt="사용자명" />
+      <figcaption class="status is-active"><span class="sr-only">온라인</span></figcaption>
+    </figure>
+
+    <hr />
+    <h2>인터렉션이 있는 아바타</h2>
+    <!-- 버튼 안에 이미지 태그 들어가도됨 -->
+    <!-- aria-label은 인터렉션이 있는 요소에만 사용해야함(예 : 버튼, input 등) -->
+    <button aria-label="오프라인" class="avatar-botton">
+      <img src="/src/assets/face/face1.jpg" srcset="/src/assets/face/face1.webp" alt="사용자명" />
+    </button>
+    <!-- is가 들어가는건 자바스크립트로 동적으로 넣었다 뺐다 할려고 동적 클래스를 만듦 -->
+    <button aria-label="온라인" class="avatar-botton is-active">
+      <img src="/src/assets/face/face1.jpg" srcset="/src/assets/face/face1.webp" alt="사용자명" />
+    </button>
+
+    <hr />
+    <h2>아바타 리스트</h2>
+    <div class="aratars-list">
+      <ul>
+        <li>
+          <button aria-label="오프라인" class="avatar-botton">
+            <img src="/src/assets/face/face1.jpg" srcset="/src/assets/face/face1.webp" alt="사용자명" />
+          </button>
+        </li>
+        <li>
+          <button aria-label="온라인" class="avatar-botton is-active">
+            <img src="/src/assets/face/face2.jpg" srcset="/src/assets/face/face2.webp" alt="사용자명" />
+          </button>
+        </li>
+        <li>
+          <button aria-label="오프라인" class="avatar-botton">
+            <img src="/src/assets/face/face3.jpg" srcset="/src/assets/face/face3.webp" alt="사용자명" />
+          </button>
+        </li>
+        <li>
+          <button aria-label="온라인" class="avatar-botton is-active">
+            <img src="/src/assets/face/face4.jpg" srcset="/src/assets/face/face4.webp" alt="사용자명" />
+          </button>
+        </li>
+        <li>
+          <button aria-label="오프라인" class="avatar-botton">
+            <img src="/src/assets/face/face5.jpg" srcset="/src/assets/face/face5.webp" alt="사용자명" />
+          </button>
+        </li>
+        <li>
+          <button aria-label="온라인" class="avatar-botton is-active">
+            <img src="/src/assets/face/face6.jpg" srcset="/src/assets/face/face6.webp" alt="사용자명" />
+          </button>
+        </li>
+        <li>
+          <button aria-label="오프라인" class="avatar-botton">
+            <img src="/src/assets/face/face7.jpg" srcset="/src/assets/face/face7.webp" alt="사용자명" />
+          </button>
+        </li>
+        <li>
+          <button aria-label="온라인" class="avatar-botton is-active">
+            <img src="/src/assets/face/face8.jpg" srcset="/src/assets/face/face8.webp" alt="사용자명" />
+          </button>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
