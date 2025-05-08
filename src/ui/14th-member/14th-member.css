@@ -1,0 +1,88 @@
+:root {
+  --black: #121212;
+  --white: #fff;
+}
+
+/* 테이블 스타일링 */
+/* css선언하는 순서를 html 선언하는 순서로 작성 */
+body {
+  margin: 50px;
+  color: var(--black);
+}
+
+.table-wrapper {
+  overflow: auto;
+  width: 100%;
+  height: 500px;
+  block-size: 500px; /* 논리 속성 */
+
+  table {
+    /* 자신의 부모만큼 100%, width 다음에 inline-size(논리속성)를 넣어야함 */
+    width: 100%;
+    inline-size: 100%;
+    border-spacing: 0;
+    border: 1px solid currentColor;
+    /* 합치다, 병합하다 */
+    border-collapse: collapse;
+  }
+
+  .number {
+    inline-size: 10%;
+  }
+
+  .name {
+    inline-size: 20%;
+  }
+
+  .email {
+    inline-size: 30%;
+  }
+
+  .phone {
+    inline-size: 40%;
+  }
+
+  thead,
+  tfoot {
+    color: var(--white);
+    background: var(--black);
+  }
+
+  thead {
+    /* relative + fixed */
+    position: sticky;
+    top: 0;
+  }
+
+  /* 음수가 있으면 나의 앞쪽을 말하고 양수가 있으면 나의 뒤쪽을 말함
+    nth-child(n+2) 
+  */
+  tbody tr:nth-child(even) {
+    background: var(--gray);
+  }
+
+  th,
+  td {
+    /* border: 1px solid currentColor; */
+    padding: 1em;
+  }
+
+  td {
+    text-align: center;
+  }
+}
+
+/* 
+  nth-child(n+4):nth-child(-n+8) : 4번째 이상이면서 8번째 이하인 요소들
+  nth-child(n+2):nth-child(odd):nth-child(-n+9) : 2번째 이상이면서 홀수이면서 9번째 이하인 요소들
+  nth-child(3n+1):nth-child(even) : 1,4,7,10이면서 짝수인 요소들
+  nth-of-type(3) : 
+  span:nth-of-type(n+3)
+  div:nth-of-type(2n+2)
+  span:nth-of-type(-n+4)
+  div:nth-of-type(-n+5)
+  span:nth-of-type(n+3):nth-of-type(-n+6)
+  div:nth-of-type(n+1):nth-of-type(-n+3)
+  span:nth-of-type(n+3):nth-of-type(odd):nth-of-type(-n+6)
+  div:nth-of-type(n+1):nth-of-type(even):nth-of-type(-n+3)
+*/
